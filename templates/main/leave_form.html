@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %} 
+{% load static %}
+
+{% block title %}leaveform{% endblock title %}
+{% block css %} <link rel="stylesheet" href="{%  static 'css/leave_form.css' %}">  {% endblock css %}
+ 
+{% block content %}
+    <div class="dashboard-section">
+        <h1>Leave Apply</h1>
+        <div class="leaveform">
+            <form action="/student-leave/" method="post">
+                {% csrf_token %}
+                
+                <label for="roll_number">Roll Number:</label>
+                <input type="text" class="mb-3" id="roll_number" name="roll_number" maxlength="6" required><br>
+
+                <label for="full_name">Full Name:</label>
+                <input type="text" class="mb-3" id="full_name" name="full_name" maxlength="100" required><br>
+
+
+                <label for="faculty">Faculty:</label>
+                    <select id="faculty" name="faculty" class="mb-3" required>
+                        <option value="">Select Faculty</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Electronics Engineering">Electronics Engineering</option>
+                        <option value="Architecture Engineering">Architecture Engineering</option>
+                    </select><br>       
+
+                <!-- Semester as number input -->
+                <label for="semester">Semester:</label>
+                    <select id="semester" name="semester" class="mb-3" required>
+                        <option value="">Select Semester</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select><br>
+
+                <label for="reason">Reason for Leave:</label><br>
+                <textarea id="reason" class="mb-3" name="reason" rows="4" cols="50" required></textarea><br>
+
+                <label for="start_date">Start Date:</label>
+                <input type="date" class="mb-3" id="start_date" name="start_date" required><br>
+
+                <label for="end_date">End Date:</label>
+                <input type="date" class="mb-3" class="mb-3" id="end_date" name="end_date" required><br>
+
+                <label for="leave_type">Leave Type:</label>
+                <input type="text" class="mb-3" id="leave_type" name="leave_type" maxlength="100" required><br>
+
+                <label for="guardian_contact">Guardian Contact:</label>
+                <input type="tel" class="mb-3" id="guardian_contact" name="guardian_contact" maxlength="20" required><br>
+
+                <label for="student_contact">Student Contact:</label>
+                <input type="tel" class="mb-3" id="student_contact" name="student_contact" maxlength="13" required><br>
+
+                <label for="student_mail">Student Email:</label>
+                <input type="email" class="mb-3" id="student_mail" name="student_mail" required><br>
+
+                <button type="submit" class="mb-3">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}

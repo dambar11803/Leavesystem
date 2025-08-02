@@ -1,0 +1,66 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+  Edit Leave Request
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="alert alert-secondary text-center mt-4 fs-4 text-primary">Edit Leave Request</div>
+
+  <form method="POST" class="mt-4">
+    {% csrf_token %}
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="full_name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" value="{{ student.full_name }}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="roll_number" class="form-label">Roll Number</label>
+        <input type="text" class="form-control" id="roll_number" name="roll_number" value="{{ student.roll_number }}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="faculty" class="form-label">Faculty</label>
+        <select class="form-select" id="faculty" name="faculty" required>
+          <option value="{{ student.faculty }}" selected>{{ student.faculty }}</option>
+          <option value="Electronics Engineering">Electronics Engineering</option>
+          <option value="Architecture Engineering">Architecture Engineering</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="semester" class="form-label">Semester</label>
+        <select class="form-select" id="semester" name="semester" required>
+          <option value="{{ student.semester }}" selected>{{ student.semester }}</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="start_date" class="form-label">Leave Start Date</label>
+        <input type="date" class="form-control" id="start_date" name="start_date" value="{{ student.start_date|date:'Y-m-d' }}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="end_date" class="form-label">Leave End Date</label>
+        <input type="date" class="form-control" id="end_date" name="end_date" value="{{ student.end_date|date:'Y-m-d' }}" required>
+      </div>
+      <div class="col-12">
+        <label for="reason" class="form-label">Reason</label>
+        <textarea class="form-control" id="reason" name="reason" rows="3" required>{{ student.reason }}</textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="student_contact" class="form-label">Mobile Number</label>
+        <input type="tel" class="form-control" id="student_contact" name="student_contact" value="{{ student.student_contact }}" required>
+      </div>
+      <div class="col-12 mt-4">
+        <button type="submit" class="btn btn-primary me-2">Update</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

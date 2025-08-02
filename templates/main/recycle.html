@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+  recycle
+{% endblock %}
+{% block css %} <link rel="stylesheet" href="{%  static 'css/recycle.css' %}">  {% endblock css %}
+{% block content %}
+  <div class="container">
+    <div class="deleted-items">
+        <h3 class="text-center alert alert-danger">Deleted Items</h3>
+        <div class="restore-all">
+          <a href="{% url 'restore_all' %}"><button>restore all</button>
+        </div>
+        <table class="table table-bordered border-primary">
+    <thead>
+      <tr>
+        <th>Sn</th>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Faculty</th>
+        <th>Semester</th>
+        <th>Leave StartDate</th>
+        <th>Leave EndDate</th>
+        <th>Reason</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in data %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ student.full_name }}</td>
+          <td>{{ student.roll_number }}</td>
+          <td>{{ student.faculty }}</td>
+          <td>{{ student.semester }}</td>
+          <td>{{ student.start_date }}</td>
+          <td>{{ student.end_date }}</td>
+          <td>{{ student.reason }}</td>
+          <td>{{ student.student_contact }}</td>
+          <td><a href="{% url 'restore' student.id %}"><button>restore</button></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="10">No students found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+        
+    </div>
+  </div>
+{% endblock %}

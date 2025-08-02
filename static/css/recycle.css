@@ -1,0 +1,135 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General page style */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f7faff, #e9f0ff);
+  color: #333;
+}
+
+/* Container */
+.container {
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.8s ease;
+}
+
+/* Deleted items section */
+.deleted-items h3 {
+  font-weight: bold;
+  color: #b02a37;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* Restore-all button container */
+.restore-all {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.restore-all button {
+  padding: 0.5rem 1rem;
+  background: #198754;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restore-all button:hover {
+  background: #146c43;
+  transform: scale(1.05);
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  background-color: #0d6efd;
+  color: white;
+}
+
+thead th {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+tbody td {
+  padding: 0.7rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Restore button inside table */
+tbody button {
+  padding: 0.3rem 0.7rem;
+  background-color: #0dcaf0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+tbody button:hover {
+  background-color: #0bb2d4;
+  transform: scale(1.05);
+}
+
+/* Empty row */
+tbody tr td[colspan] {
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem;
+  color: #888;
+}
+
+/* Responsive table */
+@media (max-width: 900px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background: #f8f9fa;
+  }
+
+  tbody td {
+    text-align: left;
+    padding: 0.4rem 0.6rem;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+ 
